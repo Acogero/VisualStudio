@@ -1,4 +1,5 @@
-﻿
+﻿@model Introducao.Models.Pessoa
+
 @{
     ViewBag.Title = "Index";
 }
@@ -7,3 +8,42 @@
 
 <p>Curso texto qualquer</p>
 
+<br />
+<br />
+<!--
+<p>@ViewData["idPessoa"]</p>
+<p>@ViewData["nomePessoa"]</p>
+<p>@ViewData["tipoFuncionario"]</p>
+    -->
+<!--
+<p>@ViewBag.idPessoa</p>
+<p>@ViewBag.nomePessoa</p>
+<p>@ViewBag.tipoFuncionario</p>
+    -->
+
+<form action="Home/Lista" method="post">
+    <fieldset>
+        <legend>Informações de Pessoas</legend>
+
+        <div>
+            <label for="idPessoa">Código</label>
+        </div>
+        <div>
+            <input type="number" value="@Model.idPessoa" name="idPessoa">
+        </div>
+        <div>
+            <label for="nomePessoa">Nome</label>
+        </div>
+        <div>
+            <input type="text" value="@Model.nomePessoa" name="nomePessoa">
+        </div>
+        <div>
+            <label for="tipoFuncionario">Tipo</label>
+        </div>
+        <div>
+            <input type="text" value="@Model.tipoFuncionario" name="tipoFuncionario">
+        </div>
+        <br /><br />
+        <input type="submit" value="Enviar" />
+    </fieldset>
+</form>
