@@ -21,29 +21,34 @@
 <p>@ViewBag.tipoFuncionario</p>
     -->
 
-<form action="Home/Lista" method="post">
+<!-- Semelhante ao <form> -->
+@using (Html.BeginForm("Lista", "Home", FormMethod.Post))
+{
     <fieldset>
         <legend>Informações de Pessoas</legend>
 
         <div>
-            <label for="idPessoa">Código</label>
+            <label for="idPessoa">@Html.LabelFor(x => x.idPessoa)</label>
         </div>
         <div>
-            <input type="number" value="@Model.idPessoa" name="idPessoa">
+            @Html.EditorFor(x => x.idPessoa)
+            <!--<input type="number" value="@Model.idPessoa" name="idPessoa">-->
         </div>
         <div>
-            <label for="nomePessoa">Nome</label>
+            <label for="nomePessoa">@Html.LabelFor(x => x.nomePessoa)</label>
         </div>
         <div>
-            <input type="text" value="@Model.nomePessoa" name="nomePessoa">
+            @Html.EditorFor(x => x.nomePessoa)
         </div>
         <div>
-            <label for="tipoFuncionario">Tipo</label>
+            <label for="tipoFuncionario">@Html.LabelFor(x => x.tipoFuncionario)</label>
         </div>
         <div>
-            <input type="text" value="@Model.tipoFuncionario" name="tipoFuncionario">
+            @Html.EditorFor(x => x.tipoFuncionario)
         </div>
         <br /><br />
         <input type="submit" value="Enviar" />
     </fieldset>
-</form>
+
+
+}

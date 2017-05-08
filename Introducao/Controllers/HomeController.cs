@@ -38,13 +38,31 @@ namespace Introducao.Controllers
 
         //Toda vez que houver alguma requisição HTTP é necessário informar com a anotação abaixo
         [HttpPost]
-        public ActionResult Lista(int idPessoa, string nomePessoa, string tipoFuncionario)
+        /*
+        public ActionResult Lista(FormCollection form)
         {
-            ViewData["idPessoa"] = idPessoa;
-            ViewData["nomePessoa"] = nomePessoa;
-            ViewData["tipoFuncionario"] = tipoFuncionario;
+            //form["idPessoa"] é o id ou nome do campo em index
+            ViewData["idPessoa"] = form["idPessoa"];
+            ViewData["nomePessoa"] = form["nomePessoa"];
+            ViewData["tipoFuncionario"] = form["tipoFuncionario"];
 
             return View();
+        }
+        */
+
+            /*
+        public ActionResult Lista(Pessoa pessoa)
+        {
+            ViewData["idPessoa"] = pessoa.idPessoa;
+            ViewData["nomePessoa"] = pessoa.nomePessoa;
+            ViewData["tipoFuncionario"] = pessoa.tipoFuncionario;
+            return View();
+        }
+        */
+
+        public ActionResult Lista(Pessoa pessoa)
+        {
+            return View(pessoa);
         }
     }
 }
