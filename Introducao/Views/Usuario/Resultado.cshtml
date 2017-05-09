@@ -1,7 +1,63 @@
-﻿
+﻿@model Introducao.Models.Usuario
+
 @{
-    ViewBag.Title = "Resultado";
+    ViewBag.Title = "Resultado Usuários";
 }
 
-<h2>Resultado</h2>
+<h2>Listar dados Usuário</h2>
+
+<fieldset>
+    <legend>Usuário cadastrado</legend>
+
+    <div class="editor-label">
+        @Html.DisplayNameFor(model => model.nome)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.nome)
+    </div>
+
+    <div class="editor-label">
+        @Html.DisplayNameFor(model => model.observacoes)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.observacoes)
+    </div>
+
+    <div class="editor-label">
+        @Html.DisplayNameFor(model => model.idade)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.idade)
+    </div>
+
+    <div class="editor-label">
+        @Html.DisplayNameFor(model => model.email)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.email)
+    </div>
+
+    <div class="editor-label">
+        @Html.DisplayNameFor(model => model.login)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.login)
+    </div>
+
+    <div class="editor-label">
+        @Html.DisplayNameFor(model => model.senha)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.senha)
+    </div>
+
+    <div class="editor-label">
+        @Html.DisplayNameFor(model => model.confirmarSenha)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.confirmarSenha)
+    </div>
+
+    <p>@Html.ActionLink("Voltar", "Usuario")</p>
+</fieldset>
 

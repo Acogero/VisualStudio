@@ -9,7 +9,7 @@ namespace Introducao.Controllers
 {
     public class UsuarioController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Usuario()
         {
             var usuario = new Usuario();
 
@@ -17,8 +17,12 @@ namespace Introducao.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Usuario usuario)
+        public ActionResult Usuario(Usuario usuario)
         {
+            if (string.IsNullOrEmpty(usuario.nome))
+            {
+                ModelState.AddModelError("Nome", "O campo nome é obrigatório.");
+            }
             //Se os dados do usuário for válido
             if (ModelState.IsValid)
             {

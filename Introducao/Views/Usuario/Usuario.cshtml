@@ -22,5 +22,60 @@
             @Html.ValidationMessageFor(model => model.nome)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.observacoes)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.observacoes)
+            @Html.ValidationMessageFor(model => model.observacoes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.idade)
+            @Html.ValidationMessageFor(model => model.idade)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.email)
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.login)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.login)
+            @Html.ValidationMessageFor(model => model.login)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.senha)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.senha)
+            @Html.ValidationMessageFor(model => model.senha)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.confirmarSenha)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.confirmarSenha)
+            @Html.ValidationMessageFor(model => model.confirmarSenha)
+        </div>
+        <br /><br />
+        <p><input type="submit" value="Cadastrar" /></p>
     </fieldset>
+
+    //JavaScript
+
+    @section Scripts{
+        @Scripts.Render("~/budles/jqueryval")
+    }
 }
