@@ -1,68 +1,47 @@
 ﻿using Introducao.Models;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Introducao.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly IEnumerable<Noticia> todasAsNoticias;
+
+        public HomeController()
+        {
+            todasAsNoticias = new Noticia().TodasAsNoticias().OrderByDescending(x => x.Data);
+        }
+
         // GET: Home
         public ActionResult Index()
         {
-            var pessoa = new Pessoa()
-            {
-                idPessoa = 1,
-                nomePessoa = "João Almeida",
-                tipoFuncionario = "Estagiário"
-            };
 
-            //Associando as informações na view
-            /*
-            ViewData["idPessoa"] = pessoa.idPessoa;
-            ViewData["nomePessoa"] = pessoa.nomePessoa;
-            ViewData["tipoFuncionario"] = pessoa.tipoFuncionario;
-            */
+            var ultimasNoticias = todasAsNoticias.Take(3);
+            var todasAsCategorias = todasAsNoticias.Select(x => x.Categoria).Distinct().ToList();
 
-            /*
-            ViewBag.idPessoa = pessoa.idPessoa;
-            ViewBag.nomePessoa = pessoa.nomePessoa;
-            ViewBag.tipoFuncionario = pessoa.tipoFuncionario;
-            */
+            ViewBag.Categorias = todasAsNoticias;
 
-            return View(pessoa);
+            return View(ultimasNoticias);
         }
 
-        public ActionResult Contatos()
+        public ActionResult TodasAsNoticias()
         {
-            return View();
+            return View(todasAsNoticias);
         }
 
-        //Toda vez que houver alguma requisição HTTP é necessário informar com a anotação abaixo
-        [HttpPost]
-        /*
-        public ActionResult Lista(FormCollection form)
+        public ActionResult MostraNoticia(int noticiaId, string titulo, string categoria)
         {
-            //form["idPessoa"] é o id ou nome do campo em index
-            ViewData["idPessoa"] = form["idPessoa"];
-            ViewData["nomePessoa"] = form["nomePessoa"];
-            ViewData["tipoFuncionario"] = form["tipoFuncionario"];
-
-            return View();
+            return View(todasAsNoticias.FirstOrDefault(x => x.NoticiaId == noticiaId));
         }
-        */
 
-            /*
-        public ActionResult Lista(Pessoa pessoa)
+        public ActionResult MostraCategoria(string categoria)
         {
-            ViewData["idPessoa"] = pessoa.idPessoa;
-            ViewData["nomePessoa"] = pessoa.nomePessoa;
-            ViewData["tipoFuncionario"] = pessoa.tipoFuncionario;
-            return View();
-        }
-        */
-
-        public ActionResult Lista(Pessoa pessoa)
-        {
-            return View(pessoa);
+            var categoriaEspecifica = todasAsNoticias.Where(x => x.Categoria.ToLower() == categoria.ToLower()).ToList();
+            ViewBag.Categoria = categoria;
+            return View(categoriaEspecifica);
         }
     }
 }

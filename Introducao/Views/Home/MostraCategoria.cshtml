@@ -1,23 +1,10 @@
 ﻿@model IEnumerable<Introducao.Models.Noticia>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Categoria";
 }
 
-<h2>Título curso de ASP MVC</h2>
-
-<h2>Rotas em ASP</h2>
-
-<div>
-    <ul>
-        @foreach (string item in ViewBag.Categorias)
-        {
-            <li>
-                @Html.ActionLink(item, "MostraCategoria", "Home", new { @categoria = item }, null)
-            </li>
-        }
-    </ul>
-</div>
+<h2>Categoria: @ViewBag.Categoria</h2>
 
 <div>
     <ul>
@@ -40,8 +27,4 @@
         }
     </ul>
 
-</div>
-
-<div>
-    @Html.ActionLink("Todas as Noticias", "TodasAsNoticias", "Home")
 </div>

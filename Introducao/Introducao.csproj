@@ -206,6 +206,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Noticia.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -276,6 +277,9 @@
     <Content Include="Views\Home\Lista.cshtml" />
     <Content Include="Views\Usuario\Resultado.cshtml" />
     <Content Include="Views\Usuario\Usuario.cshtml" />
+    <Content Include="Views\Home\TodasAsNoticias.cshtml" />
+    <Content Include="Views\Home\MostraNoticia.cshtml" />
+    <Content Include="Views\Home\MostraCategoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
