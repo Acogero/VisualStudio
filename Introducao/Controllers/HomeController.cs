@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
+
+
 namespace Introducao.Controllers
 {
     public class HomeController : Controller
@@ -15,14 +17,13 @@ namespace Introducao.Controllers
             todasAsNoticias = new Noticia().TodasAsNoticias().OrderByDescending(x => x.Data);
         }
 
-        // GET: Home
         public ActionResult Index()
         {
 
             var ultimasNoticias = todasAsNoticias.Take(3);
             var todasAsCategorias = todasAsNoticias.Select(x => x.Categoria).Distinct().ToList();
 
-            ViewBag.Categorias = todasAsNoticias;
+            ViewBag.Categorias = todasAsCategorias;
 
             return View(ultimasNoticias);
         }
